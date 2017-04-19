@@ -1,0 +1,47 @@
+<div class="bg-2">
+<%= form_for(@jugador) do |f| %>
+  <% if @jugador.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@jugador.errors.count, "errores") %> impidieron que se guardara este jugador:</h4>
+
+      <ul>
+      <% @jugador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field-tm">
+    <%= f.text_field :nombre, :placeholder => "Nombre" %>
+  </div>
+  <div class="field-tm">
+    <%= f.number_field :numero, :placeholder => "Número de Jersey" %>
+  </div>
+  <div class="field-tm">
+    <%= f.label :categoria, "Categoría" %>
+    <%= f.collection_select :categoria, @categorias, :name, :name %>
+  </div>
+  <div class="field-tm">
+    <%= f.text_field :direccion, :placeholder => "Dirección" %>
+  </div>
+  <div class="field-tm">
+    <%= f.text_field :telefono, :placeholder => "Teléfono" %>
+  </div>
+  <div class="field-tm">
+    <%= f.text_field :celPapa, :placeholder => "Cel. Padre" %>
+  </div>
+  <div class="field-tm">
+    <%= f.text_field :celMama, :placeholder => "Cel. Madre" %>
+  </div>
+  <div class="field-tm">
+    <%= f.label :tallaJersey, "Talla de Jersey: " %>
+    <%= f.select :tallaJersey, @tallas %>
+  </div>
+  <div class="field">
+    <%= f.label :tallaFunda, "Talla de Pantalón: " %>
+    <%= f.select :tallaFunda, @tallas %>
+  </div>
+  <%= f.submit "Guardar", class: "btn btn-default" %>
+<% end %>
+</div>

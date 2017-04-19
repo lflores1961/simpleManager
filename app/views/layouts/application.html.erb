@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container-fluid bg-1" >
+  <div class="row">
+    <div class="col-xs-12">
+      <%= image_tag("ClipbrdTeamManager.png", size: "100x60", alt: "Clip team manager") %>
+      <p id="logo">TEAM MANAGER</p>
+      <%= link_to "Inicio", root_path,  class: "navbar-right btn btn-xs" %>
+      <%= link_to "Regresar", request.env['HTTP_REFERER'], class: "navbar-right btn btn-xs" %>
+    </div>
+  </div>
+</div>
+<div>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
+  <%= debug(params) if Rails.env.development? %>
+</div>
+</body>
+</html>

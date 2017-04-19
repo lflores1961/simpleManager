@@ -1,0 +1,23 @@
+<% provide(:title, "Pagos") %>
+  <div class="container-fluid bg-2">
+    <h4>Pagos</h4>
+    <table class="center">
+      <tbody>
+        <tr>
+          <td><strong>Nombre:</strong></td>
+          <td><%= @jugador.nombre %></td>
+        </tr>
+
+        <tr>
+          <td><strong>Número:</strong></td>
+          <td><%= @jugador.numero %></td>
+        </tr>
+
+        <tr>
+          <td><strong>Categoría:</strong></td>
+          <td><%= @jugador.categoria %></td>
+        </tr>
+      </table>
+    <%= render 'form' %>
+
+  </div>

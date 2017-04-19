@@ -1,0 +1,31 @@
+<% provide(:title, "Conceptos") %>
+<div class="bg-2 container-fluid">
+<p id="notice"><%= notice %></p>
+
+<h4>Listado de Conceptos</h4>
+
+<table class="center">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tarifa</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conceptos.each do |concepto| %>
+      <tr>
+        <td><%= concepto.name %></td>
+        <td><%= number_to_currency(concepto.tarifa) %></td>
+        <td><%= link_to '', edit_concepto_path(concepto), class: "glyphicon glyphicon-edit" %></td>
+        <td><%= link_to '', concepto, class: "glyphicon glyphicon-trash", method: :delete,
+          data: { confirm: 'Está seguro?' } %></td>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Concepto nuevo', new_concepto_path, class: "btn btn-default cust-button" %>
+</div>

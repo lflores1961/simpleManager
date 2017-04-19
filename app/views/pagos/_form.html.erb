@@ -1,0 +1,34 @@
+<div class="bg-2">
+<%= form_for(@pago) do |f| %>
+  <% if @pago.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pago.errors.count, "error") %> prohibited this pago from being saved:</h2>
+
+      <ul>
+      <% @pago.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field-tm">
+    <%= f.label :concepto %>
+    <%= f.collection_select :concepto, @conceptos, :name, :name, {:prompt => 'Selecciona el concepto'} %>
+
+  </div>
+  <div class="field-tm">
+
+    <%= f.label :tarifa %>: $<span id="la-tarifa"> </span>
+  </div>
+  <div class="field-tm">
+    <%= f.number_field :cantidad, :placeholder => "Cantidad a pagar" %>
+  </div>
+  <%= f.hidden_field :jugador_id, :value => params[:jugador_id] %>
+
+
+  <div class="actions">
+    <%= f.submit "Registrar Pago", class: "btn btn-default"%>
+  </div>
+<% end %>
+</div>

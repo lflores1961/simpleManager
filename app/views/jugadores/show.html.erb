@@ -1,0 +1,58 @@
+<% provide(:title, "Jugadores") %>
+<div class="bg-2 container-fluid">
+<p id="notice"><%= notice %></p>
+
+<table class="center">
+  <tbody>
+    <tr>
+      <td><strong>Nombre:</strong></td>
+      <td><%= @jugador.nombre %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Número:</strong></td>
+      <td><%= @jugador.numero %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Categoría:</strong></td>
+      <td><%= @jugador.categoria %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Dirección:</strong></td>
+      <td><%= @jugador.direccion %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Teléfono:</strong></td>
+      <td><%= @jugador.telefono %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Celular padre:</strong></td>
+      <td><%= @jugador.celPapa %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Celular madre:</strong></td>
+      <td><%= @jugador.celMama %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Talla jersey:</strong></td>
+      <td><%= @jugador.tallaJersey %></td>
+    </tr>
+
+    <tr>
+      <td><strong>Talla pants:</strong></td>
+      <td><%= @jugador.tallaFunda %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= render 'pagos/pago'%>
+<%= link_to '  ', edit_jugador_path(@jugador), class: "glyphicon glyphicon-edit" %>
+<%= link_to '  ', pagar_path(@jugador), class: "glyphicon glyphicon-usd" %>
+
+</div>

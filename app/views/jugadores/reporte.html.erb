@@ -1,0 +1,40 @@
+<% provide(:title, "Jugadores") %>
+<div class="bg-2 container-fluid">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Reporte de Pagos</h1>
+
+  <table class="center index clearfix">
+    <thead>
+      <tr class="juga">
+        <th>Jugador</th>
+        <th>No. Jersey</th>
+        <th>Categoría</th>
+      </tr>
+      <tr>
+        <th>Fecha</th>
+        <th>Concepto</th>
+        <th>Pago</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jugadores.each do |jugador| %>
+        <%= render jugador %>
+        <% payments = jugador.pagos %>
+        <% payments.each do |pago| %>
+          <tr>
+            <td><%= pago.created_at %></td>
+            <td><%= pago.concepto %></td>
+            <td style="text-align:right"><%= pago.cantidad %></td>
+          </tr>
+        <% end %>
+        <tr class="subtotal">
+          <td>Subtotal:</td>
+          <td colspan="2"><%= jugador.pagos.sum(:cantidad) %></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+
+  </table>
+</div>
